@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Devops TrainingTech Releases Nexus Repository</name>
-	      <url>http://3.95.219.33:9999/devopstrainingtech/repository/amazon-Repo/</url>
+	      <url>http://54.145.18.7:9999/devopstrainingtech/repository/amazon-Repo/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Devops TrainingTech Snapshot Nexus Repository </name>
-	      <url>http://3.95.219.33:9999/devopstrainingtech/repository/amaozon-snapshot-repo/</url>
+	      <url>http://54.145.18.7:9999/devopstrainingtech/repository/amaozon-snapshot-repo/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
