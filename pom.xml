@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Devops TrainingTech Releases Nexus Repository</name>
-	      <url>http://3.89.114.161:9999/devopstrainingtech/repository/wallmart-release/</url>
+	      <url>http://3.208.12.14:9999/devopstrainingtech/repository/wallmart-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Devops TrainingTech Snapshot Nexus Repository </name>
-	      <url>http://3.89.114.161:9999/devopstrainingtech/repository/wallmart-snapshop/</url>
+	      <url>http://3.208.12.14:9999/devopstrainingtech/repository/wallmart-snapshop/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
