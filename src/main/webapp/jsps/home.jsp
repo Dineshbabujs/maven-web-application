@@ -9,7 +9,7 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to Devops Training Tech </h1>
+<h1 align="center">Welcome to Devops Training Tech Bangalore</h1>
 <h1 align="center"> Devops Training Tech is Training center for DevOps with AWS Bangalore India</h1>
 <hr>
 <br>
