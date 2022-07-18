@@ -25,10 +25,11 @@ stage('UploadToTomcatServer') {
 sshagent(['8bdf1b58-ccf3-4532-b41c-32fb72ff063c']) {
 sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@54.211.66.114:/opt/apache-tomcat-9.0.59/webapps/"
 }
+}
 */
 stage('EmailNotifictions') {
 emailext body: '''Hi team ,
 This is our pipeline build status please varify the application deployment''', recipientProviders: [developers()], subject: 'BuildStatus', to: 'devopstrainingtech@gmail.com'
-}
+
 }
 }
