@@ -14,13 +14,14 @@ git branch: 'development', credentialsId: 'e8d12ed9-38af-4459-aefa-c224a3ccfe94'
 stage('Build') {
 sh "${MavenHome}/bin/mvn clean package"
 }
+/*
 stage('Sonarqube_Scanning') {
 sh "${MavenHome}/bin/mvn sonar:sonar"
 }
 stage('Upload to Nexus') {
 sh "${MavenHome}/bin/mvn deploy"
 }
-/*
+
 stage('UploadToTomcatServer') {
 sshagent(['8bdf1b58-ccf3-4532-b41c-32fb72ff063c']) {
 sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@54.211.66.114:/opt/apache-tomcat-9.0.59/webapps/"
