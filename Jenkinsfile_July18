@@ -1,0 +1,32 @@
+node{
+  
+  echo "Jenkins Home ${env.JENKINS_HOME}"
+  echo "Jenkins URL ${env.JENKINS_URL}"
+  echo "JOB Name ${env.JOB_NAME}"
+  
+def MavenHome = tool name: "maven-3.8.2"
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), [$class: 'JobLocalConfiguration', changeReasonComment: '']])
+
+stage('checkout code') {
+git branch: 'development', credentialsId: 'e8d12ed9-38af-4459-aefa-c224a3ccfe94', url: 'https://github.com/devopstrainingtech/maven-web-application.git'
+}
+
+stage('Build') {
+sh "${MavenHome}/bin/mvn clean package"
+}
+stage('Sonarqube_Scanning') {
+sh "${MavenHome}/bin/mvn sonar:sonar"
+}
+stage('Upload to Nexus') {
+sh "${MavenHome}/bin/mvn deploy"
+}
+stage('UploadToTomcatServer') {
+sshagent(['8bdf1b58-ccf3-4532-b41c-32fb72ff063c']) {
+sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@54.211.66.114:/opt/apache-tomcat-9.0.59/webapps/"
+}
+stage('EmailNotifictions') {
+emailext body: '''Hi team ,
+This is our pipeline build status please varify the application deployment''', recipientProviders: [developers()], subject: 'BuildStatus', to: 'devopstrainingtech@gmail.com'
+}
+}
+}
